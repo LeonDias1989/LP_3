@@ -1,4 +1,4 @@
-package Exercício_4;
+package Exercicio_4;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
