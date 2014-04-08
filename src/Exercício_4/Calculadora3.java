@@ -19,7 +19,9 @@ public class Calculadora3 extends JFrame {
 	private JLabel numero1, numero2, resultado, operacao;
 	private JTextField textoNum1, textoNum2, textoResultado;
 
-	private JComboBox<String> combo = new JComboBox<>();
+	private String[] textCombo = new String[] { "Soma", "Subtração",
+			"Multiplicação", "Divisão" };
+	private JComboBox<String> combo = new JComboBox<>(textCombo);
 
 	public Calculadora3() {
 		super("Calculadora 3");
@@ -42,7 +44,7 @@ public class Calculadora3 extends JFrame {
 		textoNum2 = new JTextField();
 		textoResultado = new JTextField();
 
-		JPanel paneLabels = new JPanel(new GridLayout(4, 2));
+		JPanel paneLabels = new JPanel(new GridLayout(4, 1));
 
 		paneLabels.add(numero1);
 		paneLabels.add(textoNum1);

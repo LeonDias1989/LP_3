@@ -59,14 +59,14 @@ public class Calculadora2 extends JFrame {
 			rationButtons[i] = new JRadioButton();
 
 		}
-		
+
 		soma = new JLabel("Soma");
 		subtracao = new JLabel("Subtração");
 		multiplicacao = new JLabel("Multiplicação");
 		divisao = new JLabel("Divisão");
-		
+
 		JPanel paneRations = new JPanel(new FlowLayout());
-		
+
 		paneRations.add(rationButtons[0]);
 		paneRations.add(soma);
 		paneRations.add(rationButtons[1]);
@@ -77,7 +77,7 @@ public class Calculadora2 extends JFrame {
 		paneRations.add(divisao);
 
 		getContentPane().add(paneRations, BorderLayout.CENTER);
-		
+
 		JPanel paneButtons = new JPanel(new FlowLayout());
 
 		calcular = new JButton("Calcular");
@@ -91,7 +91,7 @@ public class Calculadora2 extends JFrame {
 	}
 
 	private void configJanela() {
-		
+
 		setSize(400, 250);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

@@ -22,7 +22,7 @@ public class Calculadora1 extends JFrame {
 		super("Calculadora 1");
 		iniciarComponentes();
 		configJanela();
-		
+
 	}
 
 	private void iniciarComponentes() {
@@ -37,8 +37,9 @@ public class Calculadora1 extends JFrame {
 		textoNum1 = new JTextField();
 		textoNum2 = new JTextField();
 		textoResultado = new JTextField();
+		textoResultado.setEditable(false);
 
-		JPanel jPanel = new JPanel(new GridLayout(3, 2));
+		JPanel jPanel = new JPanel(new GridLayout(3, 1));
 
 		jPanel.add(numero1);
 		jPanel.add(textoNum1);
@@ -64,7 +65,7 @@ public class Calculadora1 extends JFrame {
 	}
 
 	private void configJanela() {
-		setSize(300,250);
+		setSize(300, 250);
 		setVisible(true);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
