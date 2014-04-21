@@ -3,6 +3,8 @@ package Exercicio_4;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -65,6 +67,8 @@ public class Calculadora3 extends JFrame {
 		calcular = new JButton("Calcular");
 		zerar = new JButton("Zerar");
 
+		zerar.addActionListener(new ButtonZerarListener());
+		
 		paneButtons.add(calcular);
 		paneButtons.add(zerar);
 
@@ -78,9 +82,23 @@ public class Calculadora3 extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 	}
+	
+	class ButtonZerarListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+		
+			textoNum1.setText(null);
+			textoNum2.setText(null);
+			textoResultado.setText(null);
+		}
+		
+		
+	}
 
 	public static void main(String[] args) {
 		new Calculadora3();
 	}
 
 }
+
