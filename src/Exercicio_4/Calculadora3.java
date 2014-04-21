@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -67,8 +68,9 @@ public class Calculadora3 extends JFrame {
 		calcular = new JButton("Calcular");
 		zerar = new JButton("Zerar");
 
+		calcular.addActionListener(new ButtonCalcularListener());
 		zerar.addActionListener(new ButtonZerarListener());
-		
+
 		paneButtons.add(calcular);
 		paneButtons.add(zerar);
 
@@ -82,18 +84,62 @@ public class Calculadora3 extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 	}
-	
-	class ButtonZerarListener implements ActionListener{
+
+	class ButtonZerarListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-		
+
 			textoNum1.setText(null);
 			textoNum2.setText(null);
 			textoResultado.setText(null);
 		}
-		
-		
+
+	}
+
+	class ButtonCalcularListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+
+			int a, b, result;
+
+			a = Integer.parseInt(textoNum1.getText());
+			b = Integer.parseInt(textoNum2.getText());
+
+			if (combo.getSelectedItem().equals("Soma")) {
+
+				result = a + b;
+
+				textoResultado.setText(String.valueOf(result));
+			} else if (combo.getSelectedItem().equals("Subtração")) {
+
+				result = a - b;
+
+				textoResultado.setText(String.valueOf(result));
+
+			} else if (combo.getSelectedItem().equals("Multiplicação")) {
+
+				result = a * b;
+
+				textoResultado.setText(String.valueOf(result));
+
+			} else if (combo.getSelectedItem().equals("Divisão")) {
+
+				try {
+					result = a / b;
+
+					textoResultado.setText(String.valueOf(result));
+
+				} catch (Exception exception) {
+					JOptionPane.showMessageDialog(null,
+							"Impossível dividir por zero");
+				}
+
+			}
+
+		}
+
 	}
 
 	public static void main(String[] args) {
@@ -101,4 +147,3 @@ public class Calculadora3 extends JFrame {
 	}
 
 }
-
