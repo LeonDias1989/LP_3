@@ -112,6 +112,7 @@ public class Calculadora3 extends JFrame {
 				result = a + b;
 
 				textoResultado.setText(String.valueOf(result));
+				
 			} else if (combo.getSelectedItem().equals("Subtração")) {
 
 				result = a - b;
