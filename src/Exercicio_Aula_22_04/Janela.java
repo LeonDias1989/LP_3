@@ -1,18 +1,23 @@
 package Exercicio_Aula_22_04;
 
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
 @SuppressWarnings("serial")
 public class Janela extends JFrame {
 
 	private JToolBar bar;
-	private ImageIcon squareImage, circleImage;
+	private ImageIcon square, circle;
 	private JButton buttonLimpar, buttonTexto, buttonCircle, buttonSqure;
+	private JPanel pane;
 
 	public Janela() {
 		super("Formas");
@@ -27,8 +32,15 @@ public class Janela extends JFrame {
 	private void iniciarComponentes() {
 
 		iniciarBar();
+		iniciarPainel();
 
 		getContentPane().add(bar, BorderLayout.NORTH);
+		getContentPane().add(pane, BorderLayout.CENTER);
+
+	}
+
+	private void iniciarPainel() {
+		pane = new JPanel();
 
 	}
 
@@ -40,9 +52,15 @@ public class Janela extends JFrame {
 		bar = new JToolBar();
 
 		bar.add(buttonCircle);
+		bar.add(Box.createHorizontalStrut(5));
 		bar.add(buttonSqure);
+		bar.add(Box.createHorizontalStrut(5));
 		bar.add(buttonTexto);
+		bar.add(Box.createHorizontalStrut(5));
 		bar.add(buttonLimpar);
+
+		buttonCircle.addActionListener(new ButtonCircleAction());
+		buttonSqure.addActionListener(new ButtonSquareAction());
 
 		bar.setRollover(true);
 
@@ -52,8 +70,8 @@ public class Janela extends JFrame {
 
 		buttonLimpar = new JButton("Limpar");
 		buttonTexto = new JButton("Texto");
-		buttonCircle = new JButton(circleImage);
-		buttonSqure = new JButton(squareImage);
+		buttonCircle = new JButton(circle);
+		buttonSqure = new JButton(square);
 
 	}
 
@@ -62,9 +80,41 @@ public class Janela extends JFrame {
 		String urlSquare = "C:/Users/631120051/Documents/GitHub/LP_3/ícones/square.jpg";
 		String urlCircle = "C:/Users/631120051/Documents/GitHub/LP_3/ícones/circle.jpg";
 
-		squareImage = new ImageIcon(urlSquare);
-		circleImage = new ImageIcon(urlCircle);
+		square = new ImageIcon(urlSquare);
+		circle = new ImageIcon(urlCircle);
 
+	}
+
+	class ButtonCircleAction implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+
+		}
+	}
+
+	class ButtonSquareAction implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+
+		}
+	}
+
+	class ButtonTextoAction implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+
+		}
+	}
+
+	class ButtonLimparAction implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+
+		}
 	}
 
 	public static void main(String[] args) {
