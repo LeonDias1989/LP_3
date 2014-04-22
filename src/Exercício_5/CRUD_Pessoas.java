@@ -65,8 +65,6 @@ public class CRUD_Pessoas extends JFrame {
 		novoMenuItem.addActionListener(new ButtonNovoListener());
 		abrirMenuItem.addActionListener(new ButtonAbrirListener());
 		sairMenuItem.addActionListener(new ButtonSairListener());
-		
-		
 
 		editar = new JMenu("Editar");
 		ajuda = new JMenu("Ajuda");
@@ -89,14 +87,10 @@ public class CRUD_Pessoas extends JFrame {
 		setTitle("CRUD de Pessoas");
 	}
 
-	public static void main(String[] args) {
-		new CRUD_Pessoas();
-	}
-
 	class ButtonNovoListener implements ActionListener {
 
 		@Override
-		public void actionPerformed(ActionEvent arg0) {
+		public void actionPerformed(ActionEvent e) {
 			new FormularioPessoa();
 			dispose();
 		}
@@ -110,18 +104,19 @@ public class CRUD_Pessoas extends JFrame {
 
 		}
 	}
-	
-	class ButtonAbrirListener implements ActionListener{
+
+	class ButtonAbrirListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
+
 			JFileChooser chooser = new JFileChooser();
 			chooser.showOpenDialog(chooser);
-			
+
 		}
-		
-		
+	}
+	public static void main(String[] args) {
+		new CRUD_Pessoas();
 	}
 
 }

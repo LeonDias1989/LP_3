@@ -74,5 +74,16 @@ public class FormularioPessoa extends JFrame {
 		}
 
 	}
+	class ButtonOkListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+
+
+			
+		}
+		
+		
+	}
 
 }
