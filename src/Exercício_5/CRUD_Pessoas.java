@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JList;
 import javax.swing.JMenu;
@@ -61,9 +62,11 @@ public class CRUD_Pessoas extends JFrame {
 		arquivo.add(salvarComoMenuItem);
 		arquivo.add(sairMenuItem);
 
-		sairMenuItem.addActionListener(new ButtonSairListener());
-
 		novoMenuItem.addActionListener(new ButtonNovoListener());
+		abrirMenuItem.addActionListener(new ButtonAbrirListener());
+		sairMenuItem.addActionListener(new ButtonSairListener());
+		
+		
 
 		editar = new JMenu("Editar");
 		ajuda = new JMenu("Ajuda");
@@ -106,7 +109,19 @@ public class CRUD_Pessoas extends JFrame {
 			System.exit(0);
 
 		}
+	}
+	
+	class ButtonAbrirListener implements ActionListener{
 
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			JFileChooser chooser = new JFileChooser();
+			chooser.showOpenDialog(chooser);
+			
+		}
+		
+		
 	}
 
 }
