@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -13,6 +14,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 
 @SuppressWarnings("serial")
 public class CRUD_Pessoas extends JFrame {
@@ -64,7 +66,8 @@ public class CRUD_Pessoas extends JFrame {
 		abrirMenuItem = new JMenuItem("Abrir...");
 		salvarMenuItem = new JMenuItem("Salvar");
 		salvarComoMenuItem = new JMenuItem("Salvar Como...");
-		sairMenuItem = new JMenuItem("Sair");
+		sairMenuItem = new JMenuItem("Sair", KeyEvent.VK_S);
+		sairMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, ActionEvent.CTRL_MASK));
 
 		arquivo.add(novoMenuItem);
 		arquivo.add(abrirMenuItem);
