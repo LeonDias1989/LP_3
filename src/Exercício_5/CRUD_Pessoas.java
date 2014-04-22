@@ -8,14 +8,21 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class CRUD_Pessoas extends JFrame implements ActionListener {
+public class CRUD_Pessoas extends JFrame {
 
 	private JList<String> listaPessoas;
 	private JButton buttonNovo, buttonEditar, buttonRemover;
 	private JPanel paneButtons;
+	private JMenuBar bar;
+	private JMenu arquivo, editar, ajuda;
+	private JMenuItem novoMenuItem, sairMenuItem, abrirMenuItem,
+			salvarMenuItem, salvarComoMenuItem;
 
 	public CRUD_Pessoas() {
 		iniciarComponentes();
@@ -34,12 +41,40 @@ public class CRUD_Pessoas extends JFrame implements ActionListener {
 		paneButtons.add(buttonEditar);
 		paneButtons.add(buttonRemover);
 
-		buttonNovo.addActionListener(this);
+		buttonNovo.addActionListener(new ButtonNovoListener());
 
 		listaPessoas = new JList<>();
 
-		getContentPane().add(listaPessoas, BorderLayout.NORTH);
+		bar = new JMenuBar();
+
+		arquivo = new JMenu("Arquivo");
+
+		novoMenuItem = new JMenuItem("Novo");
+		abrirMenuItem = new JMenuItem("Abrir...");
+		salvarMenuItem = new JMenuItem("Salvar");
+		salvarComoMenuItem = new JMenuItem("Salvar Como...");
+		sairMenuItem = new JMenuItem("Sair");
+
+		arquivo.add(novoMenuItem);
+		arquivo.add(abrirMenuItem);
+		arquivo.add(salvarMenuItem);
+		arquivo.add(salvarComoMenuItem);
+		arquivo.add(sairMenuItem);
+
+		sairMenuItem.addActionListener(new ButtonSairListener());
+
+		novoMenuItem.addActionListener(new ButtonNovoListener());
+
+		editar = new JMenu("Editar");
+		ajuda = new JMenu("Ajuda");
+
+		bar.add(arquivo);
+		bar.add(editar);
+		bar.add(ajuda);
+
+		getContentPane().add(listaPessoas, BorderLayout.CENTER);
 		getContentPane().add(paneButtons, BorderLayout.SOUTH);
+		getContentPane().add(bar, BorderLayout.NORTH);
 
 	}
 
@@ -55,10 +90,23 @@ public class CRUD_Pessoas extends JFrame implements ActionListener {
 		new CRUD_Pessoas();
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		new FormularioPessoa();
-		dispose();
+	class ButtonNovoListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			new FormularioPessoa();
+			dispose();
+		}
+	}
+
+	class ButtonSairListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			System.exit(0);
+
+		}
+
 	}
 
 }

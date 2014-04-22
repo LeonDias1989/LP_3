@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
-public class FormularioPessoa extends JFrame implements ActionListener {
+public class FormularioPessoa extends JFrame {
 
 	private JLabel labelNome, labelIdade;
 	private JTextField textNome, textIdade;
@@ -35,8 +35,6 @@ public class FormularioPessoa extends JFrame implements ActionListener {
 
 		textNome = new JTextField();
 
-		textNome.addActionListener(this);
-
 		textIdade = new JTextField();
 
 		paneForms.add(labelNome);
@@ -49,7 +47,7 @@ public class FormularioPessoa extends JFrame implements ActionListener {
 		buttonOk = new JButton("OK");
 		buttonCancel = new JButton("Cancel");
 
-		buttonCancel.addActionListener(this);
+		buttonCancel.addActionListener(new ButtonCancelListener());
 
 		paneButtons.add(buttonOk);
 		paneButtons.add(buttonCancel);
@@ -67,10 +65,14 @@ public class FormularioPessoa extends JFrame implements ActionListener {
 		setTitle("Formulário Pessoa");
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		new CRUD_Pessoas();
-		dispose();
+	class ButtonCancelListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			new CRUD_Pessoas();
+			dispose();
+		}
+
 	}
 
 }
