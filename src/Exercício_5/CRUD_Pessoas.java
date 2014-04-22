@@ -46,6 +46,16 @@ public class CRUD_Pessoas extends JFrame {
 
 		listaPessoas = new JList<>();
 
+		iniciarBar();
+
+		getContentPane().add(listaPessoas, BorderLayout.CENTER);
+		getContentPane().add(paneButtons, BorderLayout.SOUTH);
+		getContentPane().add(bar, BorderLayout.NORTH);
+
+	}
+
+	private void iniciarBar() {
+		
 		bar = new JMenuBar();
 
 		arquivo = new JMenu("Arquivo");
@@ -72,10 +82,6 @@ public class CRUD_Pessoas extends JFrame {
 		bar.add(arquivo);
 		bar.add(editar);
 		bar.add(ajuda);
-
-		getContentPane().add(listaPessoas, BorderLayout.CENTER);
-		getContentPane().add(paneButtons, BorderLayout.SOUTH);
-		getContentPane().add(bar, BorderLayout.NORTH);
 
 	}
 
@@ -115,6 +121,7 @@ public class CRUD_Pessoas extends JFrame {
 
 		}
 	}
+
 	public static void main(String[] args) {
 		new CRUD_Pessoas();
 	}
