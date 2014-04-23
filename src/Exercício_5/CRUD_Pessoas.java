@@ -57,17 +57,21 @@ public class CRUD_Pessoas extends JFrame {
 	}
 
 	private void iniciarBar() {
-		
+
 		bar = new JMenuBar();
 
 		arquivo = new JMenu("Arquivo");
 
-		novoMenuItem = new JMenuItem("Novo");
+		novoMenuItem = new JMenuItem("Novo", KeyEvent.VK_N);
+		novoMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N,
+				ActionEvent.CTRL_MASK));
+
 		abrirMenuItem = new JMenuItem("Abrir...");
 		salvarMenuItem = new JMenuItem("Salvar");
 		salvarComoMenuItem = new JMenuItem("Salvar Como...");
 		sairMenuItem = new JMenuItem("Sair", KeyEvent.VK_S);
-		sairMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, ActionEvent.CTRL_MASK));
+		sairMenuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W,
+				ActionEvent.CTRL_MASK));
 
 		arquivo.add(novoMenuItem);
 		arquivo.add(abrirMenuItem);
