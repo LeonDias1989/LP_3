@@ -77,8 +77,8 @@ public class Janela extends JFrame {
 
 	private void iniciarImagens() {
 
-		String urlSquare = "C:/Users/631120051/Documents/GitHub/LP_3/ícones/square.jpg";
-		String urlCircle = "C:/Users/631120051/Documents/GitHub/LP_3/ícones/circle.jpg";
+		String urlSquare = "C:/Users/Leon/Documents/GitHub/LP_3/ícones/square.jpg";
+		String urlCircle = "C:/Users/Leon/Documents/GitHub/LP_3/ícones/circle.jpg";
 
 		square = new ImageIcon(urlSquare);
 		circle = new ImageIcon(urlCircle);
